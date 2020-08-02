@@ -21,7 +21,7 @@ import androidx.annotation.NonNull;
 import java.util.List;
 
 /**
- * Provide specific scopes for {@link com.zndroid.permission.callback.ExplainReasonCallback} and {@link com.permissionx.guolindev.callback.ExplainReasonCallbackWithBeforeParam} to give it specific functions to call.
+ * Provide specific scopes for {@link com.zndroid.permission.callback.ExplainReasonCallback} and {@link com.zndroid.permission.callback.ExplainReasonCallbackWithBeforeParam} to give it specific functions to call.
  * @author guolin
  * @since 2020/3/18
  */
