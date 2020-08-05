@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
                         .onExplainRequestReason(new ExplainReasonCallbackWithBeforeParam() {
                             @Override
                             public void onExplainReason(ExplainScope scope, List<String> deniedList, boolean beforeRequest) {
-                                scope.showRequestReasonDialog(deniedList, "为了保证程序正常工作，请您同意以下权限申请" + deniedList, "我已明白");
+//                                scope.showRequestReasonDialog(deniedList, "为了保证程序正常工作，请您同意以下权限申请" + deniedList, "我已明白");
+                                scope.showRequestReasonDialog(new CustomDialog(MainActivity.this, "haha", deniedList));
                             }
                         })
                         .onForwardToSettings(new ForwardToSettingsCallback() {
