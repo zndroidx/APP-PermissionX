@@ -1,4 +1,4 @@
-package com.app.permissionx;
+package com.zndroid.permission;
 
 import android.Manifest;
 import android.content.Context;
@@ -35,7 +35,7 @@ import java.util.Set;
  * @version:
  * @description:
  */
-public class CustomDialog extends RationaleDialog {
+public class DefDialog extends RationaleDialog {
 
     private LinkedHashMap<String, String> permissionMap = new LinkedHashMap<>();
     private List<String> permissions;
@@ -49,11 +49,11 @@ public class CustomDialog extends RationaleDialog {
 
     private WeakReference<Context> context;
 
-    public CustomDialog(@NonNull Context context, String message, List<String> permissions) {
+    public DefDialog(@NonNull Context context, String message, List<String> permissions) {
         this(context, message, permissions, false);
     }
 
-    public CustomDialog(@NonNull Context context, String message, List<String> permissions, boolean showDescription) {
+    public DefDialog(@NonNull Context context, String message, List<String> permissions, boolean showDescription) {
         super(context, R.style.CustomDialog);
         this.message = message;
         this.permissions = permissions;
@@ -120,7 +120,7 @@ public class CustomDialog extends RationaleDialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.custom_dialog_layout);
+        setContentView(R.layout.pm_def_dialog_layout);
 
         TextView textView = findViewById(R.id.messageText);
         textView.setText(message);
@@ -163,7 +163,7 @@ public class CustomDialog extends RationaleDialog {
                 if (entry.getKey().equals(p)) {
                     String permissionGroup = entry.getValue();
                     if (permissionGroup != null && !groupSet.contains(permissionGroup)) {
-                        TextView textView = (TextView) LayoutInflater.from(context.get()).inflate(R.layout.permissions_item, permissionsLayout, false);
+                        TextView textView = (TextView) LayoutInflater.from(context.get()).inflate(R.layout.pm_def_item, permissionsLayout, false);
                         try {
                             PermissionGroupInfo groupInfo = context.get().getPackageManager().getPermissionGroupInfo(permissionGroup, 0);
                             textView.setText(showDescription ? groupInfo.loadDescription(context.get().getPackageManager()) : groupInfo.loadLabel(context.get().getPackageManager()));
